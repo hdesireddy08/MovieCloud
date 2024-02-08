@@ -39,10 +39,17 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 
+# Eslint cache
+.eslintcache
+
 # Python Salesforce Functions
 **/__pycache__/
 **/.venv/
 **/venv/
 
-.vscode
-node_modules
+# Added by Illuminated Cloud
+*.iml
+.idea/
+/IlluminatedCloud/
+/out/
+target/
