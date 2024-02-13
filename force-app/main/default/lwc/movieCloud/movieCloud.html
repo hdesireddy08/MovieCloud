@@ -1,3 +1,11 @@
 <template>
-    Hello World.
+  <lightning-layout multiple-rows horizontal-align="space">
+    <template for:each={movies} for:item="movie">
+      <lightning-layout-item key={movie.id} size="3" padding="around-small">
+        <lightning-card title={movie.title}>
+          <img src={movie.poster_path} alt={movie.title}>
+        </lightning-card>
+      </lightning-layout-item>
+    </template>
+  </lightning-layout>
 </template>
