@@ -12,19 +12,10 @@
  * UNLESS PRIOR WRITTEN PERMISSION IS OBTAINED FROM FONTEVA, INC.
  * -----------------------------------------------------------------------------
  */
-public with sharing class Movie {
-    public Boolean adult { get; set; }
-    public String backdrop_path { get; set; }
-    public List<Integer> genre_ids { get; set; }
-    public Integer id { get; set; }
-    public String original_language { get; set; }
-    public String original_title { get; set; }
-    public String overview { get; set; }
-    public Decimal popularity { get; set; }
-    public String poster_path { get; set; }
-    public Date release_date { get; set; }
-    public String title { get; set; }
-    public Boolean video { get; set; }
-    public Decimal vote_average { get; set; }
-    public Integer vote_count { get; set; }
+public inherited sharing class ListMovie extends ListBase {
+    public List<Movie> results { get; set; }
+
+    public static ListMovie parse(String input) {
+        return (ListMovie) System.JSON.deserialize(input, ListMovie.class);
+    }
 }

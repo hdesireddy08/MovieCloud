@@ -12,8 +12,28 @@
  * UNLESS PRIOR WRITTEN PERMISSION IS OBTAINED FROM FONTEVA, INC.
  * -----------------------------------------------------------------------------
  */
-public inherited sharing abstract class ListResponse {
-    public Integer page { get; set; }
-    public Integer total_pages { get; set; }
-    public Integer total_results { get; set; }
+public inherited sharing virtual class MovieRole {
+    public Boolean adult;
+    public Integer gender;
+    public Integer id;
+    public String known_for_department;
+    public String name;
+    public String original_name;
+    public Double popularity;
+    public String profile_path;
+    public String credit_id;
+
+    // Properties specific to cast roles
+    public String character;
+    public Integer cast_id;
+    public Integer order;
+
+    // Properties specific to crew roles
+    public String department;
+    public String job;
+
+    public static MovieRole parse(String json) {
+        return (MovieRole) System.JSON.deserialize(json, MovieRole.class);
+    }
+
 }
