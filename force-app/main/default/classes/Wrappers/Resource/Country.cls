@@ -13,9 +13,12 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class Country {
-    public String iso_3166_1 {get; set;}
-    public String english_name {get; set;}
-    public String native_name {get; set;}
+    @AuraEnabled
+    public String iso_3166_1 { get; set; }
+    @AuraEnabled
+    public String english_name { get; set; }
+    @AuraEnabled
+    public String native_name { get; set; }
 
     public static Country parse(String json) {
         return (Country) System.JSON.deserialize(json, Country.class);

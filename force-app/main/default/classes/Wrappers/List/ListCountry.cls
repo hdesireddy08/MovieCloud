@@ -13,6 +13,7 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class ListCountry extends ListBase {
+    @AuraEnabled
     public List<Country> results { get; set; }
 
     public static ListCountry parse(String json) {

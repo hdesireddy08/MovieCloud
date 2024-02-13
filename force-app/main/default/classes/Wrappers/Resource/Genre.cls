@@ -13,7 +13,9 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class Genre {
+    @AuraEnabled
     public String id { get; set; }
+    @AuraEnabled
     public String name { get; set; }
 
     public static Genre parse(String json) {

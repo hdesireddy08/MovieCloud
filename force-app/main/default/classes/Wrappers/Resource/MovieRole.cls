@@ -13,23 +13,37 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing virtual class MovieRole {
+    @AuraEnabled
     public Boolean adult;
+    @AuraEnabled
     public Integer gender;
+    @AuraEnabled
     public Integer id;
+    @AuraEnabled
     public String known_for_department;
+    @AuraEnabled
     public String name;
+    @AuraEnabled
     public String original_name;
+    @AuraEnabled
     public Double popularity;
+    @AuraEnabled
     public String profile_path;
+    @AuraEnabled
     public String credit_id;
 
     // Properties specific to cast roles
+    @AuraEnabled
     public String character;
+    @AuraEnabled
     public Integer cast_id;
+    @AuraEnabled
     public Integer order;
 
     // Properties specific to crew roles
+    @AuraEnabled
     public String department;
+    @AuraEnabled
     public String job;
 
     public static MovieRole parse(String json) {

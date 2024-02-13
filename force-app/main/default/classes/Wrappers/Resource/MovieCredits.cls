@@ -13,7 +13,9 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class MovieCredits {
+    @AuraEnabled
     public List<MovieRole> cast_members { get; set; }
+    @AuraEnabled
     public List<MovieRole> crew_members { get; set; }
 
     public static MovieCredits parse(String json) {

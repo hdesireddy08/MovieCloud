@@ -13,6 +13,7 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class ListGenre {
+    @AuraEnabled
     public List<Genre> genres { get; set; }
 
     public static ListCountry parse(String json) {

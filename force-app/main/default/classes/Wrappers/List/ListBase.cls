@@ -13,7 +13,10 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing abstract class ListBase {
+    @AuraEnabled
     public Integer page { get; set; }
+    @AuraEnabled
     public Integer total_pages { get; set; }
+    @AuraEnabled
     public Integer total_results { get; set; }
 }

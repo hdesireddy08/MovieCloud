@@ -13,16 +13,27 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class PersonMovieRole extends MovieRole {
+    @AuraEnabled
     public String backdrop_path;
+    @AuraEnabled
     public List<Integer> genre_ids;
+    @AuraEnabled
     public String original_language;
+    @AuraEnabled
     public String original_title;
+    @AuraEnabled
     public String overview;
+    @AuraEnabled
     public String poster_path;
+    @AuraEnabled
     public String release_date;
+    @AuraEnabled
     public String title;
+    @AuraEnabled
     public Boolean video;
+    @AuraEnabled
     public Double vote_average;
+    @AuraEnabled
     public Integer vote_count;
 
     public static PersonMovieRole parse(String json) {

@@ -13,6 +13,7 @@
  * -----------------------------------------------------------------------------
  */
 public inherited sharing class ListMovie extends ListBase {
+    @AuraEnabled
     public List<Movie> results { get; set; }
 
     public static ListMovie parse(String input) {
