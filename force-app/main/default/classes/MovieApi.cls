@@ -47,17 +47,9 @@ public inherited sharing class MovieApi {
         COUNTRIES
     }
 
-    public static ListMovie getTopRatedMovies(Integer page, String region) {
-        String responseJSON = processRequest(ResourceType.TOP_RATED_MOVIES, new Map<String, Object> {
-            'region' => region,
-            'page' => page
-        });
-        return ListMovie.parse(responseJSON);
-    }
-
-    public static Movie getMovie(Integer id) {
-        String responseJSON = processRequest(ResourceType.MOVIE_DETAILS, id, null);
-        return Movie.parse(responseJSON);
+    public static ListMovie getMovies(Map<String, Object> parameters) {
+        String jsonResponse = processRequest(ResourceType.DISCOVER_MOVIES, parameters);
+        return ListMovie.parse(jsonResponse);
     }
 
     private static String processRequest(ResourceType resource, Map<String, Object> parameters) {
