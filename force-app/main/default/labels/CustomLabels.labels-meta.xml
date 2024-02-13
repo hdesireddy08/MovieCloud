@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>tmdb_base_image_url</fullName>
+        <categories>TMDB</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>tmdb_base_image_url</shortDescription>
+        <value>https://image.tmdb.org/t/p/original</value>
+    </labels>
+</CustomLabels>
