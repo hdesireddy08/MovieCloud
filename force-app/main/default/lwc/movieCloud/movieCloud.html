@@ -1,9 +1,16 @@
 <template>
-  <lightning-layout multiple-rows horizontal-align="space">
+
+  <lightning-layout multiple-rows horizontal-align="space" class="custom-layout">
+    
     <template for:each={movies} for:item="movie">
       <lightning-layout-item key={movie.id} size="3" padding="around-small">
-        <lightning-card title={movie.title}>
-          <img src={movie.poster_path} alt={movie.title}>
+        <lightning-card  class="custom-card-content">
+            <div class="custom-content">
+              <div class="custom-image-container">
+          <img src={movie.poster_path} alt={movie.title} class="custom-image">
+              </div>
+             <span class ="movietitle"> {movie.title}</span> 
+            </div>
         </lightning-card>
       </lightning-layout-item>
     </template>

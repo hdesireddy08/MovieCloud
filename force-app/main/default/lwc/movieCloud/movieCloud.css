@@ -1,0 +1,32 @@
+
+  .custom-layout {
+    padding: 20px; 
+  }
+  
+  .custom-card-content {
+    text-align: center;
+    position: relative;
+    width: fit-content;
+  }
+
+  .custom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .custom-image-container {
+    margin-bottom: 10px;
+  }
+
+  .custom-image {
+    width: 150px; 
+    height: auto;
+    max-height: 200px; 
+  }
+ 
+  .movietitle {
+    font-size: 10;
+    font-weight: bold;
+
+  }
