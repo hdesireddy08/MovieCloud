@@ -1,0 +1,19 @@
+:host {
+  --sds-c-card-body-spacing-inline-start: 0;
+  --sds-c-card-body-spacing-inline-end: 0;
+  --slds-c-card-body-spacing-block-start: 0;
+  --slds-c-card-body-spacing-block-end: 0;
+}
+
+.movie-card {
+  cursor: pointer;
+}
+
+.movie-poster {
+  border-radius: 4px;
+}
+
+.movie-title {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,13 @@
+<template>
+  <article class="slds-card movie-card slds-p-around_small">
+    <div class="slds-card__body slds-card__body_inner">
+      <div class="movie-poster-container">
+        <img src={movie.poster_path} alt={movie.title} class="movie-poster" />
+      </div>
+      <div class="movie-details slds-p-vertical_small">
+        <h2 title={movie.title} class="movie-title slds-text-heading_medium">{movie.title}</h2>
+        <lightning-formatted-date-time class="movie-release-date slds-text-color_weak slds-text-body_regular" value={movie.release_date} year="numeric" month="short" day="2-digit"></lightning-formatted-date-time>
+      </div>
+    </div>
+  </article>
+</template>
