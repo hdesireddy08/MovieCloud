@@ -20,13 +20,16 @@ export default class MovieCloud extends LightningElement {''
   async loadMovies() {
     try {
       const response = await getMovies({
-        "include_adult": false,
-        "include_video": false,
-        "language": "en-US",
-        "page": this.currentPage,
-        "sort_by": "vote_average.desc",
-        "without_genres": "99,10755",
-        "vote_count.gte": 200
+        parameters: {
+          "include_adult": false,
+          "include_video": false,
+          "language": "en-US",
+          "page": this.currentPage,
+          "sort_by": "vote_average.desc",
+          "vote_count.gte": 300,
+          'with_runtime.gte': 0,
+          'with_runtime.lte': 400
+        }
       });
       response.results = response.results.map(movie => {
         movie.poster_path = this.label.BASE_IMAGE_URL + movie.poster_path;
