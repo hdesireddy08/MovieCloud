@@ -16,7 +16,7 @@ public inherited sharing class ListGenre {
     @AuraEnabled
     public List<Genre> genres { get; set; }
 
-    public static ListCountry parse(String json) {
-        return (ListCountry) System.JSON.deserialize(json, ListCountry.class);
+    public static ListGenre parse(String json) {
+        return (ListGenre) System.JSON.deserialize(json, ListGenre.class);
     }
 }
