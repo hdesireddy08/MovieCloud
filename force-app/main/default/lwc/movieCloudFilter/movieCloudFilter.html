@@ -1,0 +1,93 @@
+<template>
+  <lightning-card>
+    <div class="container slds-p-horizontal_medium">
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Sort By">Sort By</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-combobox data-name="sortBy"
+                              name="sortBy"
+                              label="Sort Results By"
+                              value={sortBy}
+                              options={sortOptions}
+                              onchange={handleValueChange}></lightning-combobox>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Sort By">Release Dates</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-input type="date" label="From" data-name="fromReleaseDate" name="fromReleaseDate"
+                           value={fromReleaseDate} onchange={handleValueChange}></lightning-input>
+          <lightning-input type="date" label="To" data-name="toReleaseDate" name="toReleaseDate" value={toReleaseDate}
+                           onchange={handleValueChange}></lightning-input>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Genres">Genres</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-layout multiple-rows>
+            <template for:each={genres} for:item="genre">
+              <lightning-layout-item key={genre.id} size="6" class="slds-p-around_xx-small">
+                <lightning-badge data-id={genre.id} label={genre.name} title={genre.name}
+                                 onclick={handleGenreClick}></lightning-badge>
+              </lightning-layout-item>
+            </template>
+          </lightning-layout>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Language">Language(Harisha's)</span>
+        </h3>
+        <div class="slds-section__content">
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="User Score">User Score</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-slider label="User Score From" data-name="minimumUserScore" min="0" max="10"
+                            value={minimumUserScore} onchange={handleValueChange}>
+          </lightning-slider>
+          <lightning-slider label="User Score To" data-name="maximumUserScore" min="0" max="10" value={maximumUserScore}
+                            onchange={handleValueChange}>
+          </lightning-slider>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Minimum User Votes">Minimum User Votes</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-slider label="Minimum User Votes" data-name="minimumUserVotes" min="0" max="500"
+                            value={minimumUserVotes} variant="label-hidden"
+                            onchange={handleValueChange}></lightning-slider>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Runtime">Runtime</span>
+        </h3>
+        <div class="slds-section__content">
+          <lightning-slider label="Runtime From" min="0" data-name="minimumRuntime" max="400" value={minimumRuntime}
+                            onchange={handleValueChange}></lightning-slider>
+          <lightning-slider label="Runtime To" min="0" data-name="maximumRuntime" max="400" value={maximumRuntime}
+                            onchange={handleValueChange}></lightning-slider>
+        </div>
+      </div>
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-truncate slds-p-horizontal_small" title="Keywords">Keywords (Harisha's)</span>
+        </h3>
+        <div class="slds-section__content">
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>

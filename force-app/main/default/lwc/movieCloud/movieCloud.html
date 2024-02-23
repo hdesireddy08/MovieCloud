@@ -1,9 +1,36 @@
 <template>
   <lightning-layout multiple-rows>
-    <template for:each={movies} for:item="movie">
-      <lightning-layout-item key={movie.id} size="6" medium-device-size="3" large-device-size="2" padding="around-small">
-        <c-movie-card movie={movie}></c-movie-card>
-      </lightning-layout-item>
-    </template>
+    <lightning-layout-item size="12" medium-device-size="2">
+      <div class="slds-p-around_xx-small">
+        <c-movie-cloud-filter sort-by={filters.sortBy}
+                              language={filters.language}
+                              minimum-user-votes={filters.minimumUserVotes}
+                              minimum-runtime={filters.minimumRuntime}
+                              maximum-runtime={filters.maximumRuntime}
+                              minimum-user-score={filters.minimumUserScore}
+                              maximum-user-score={filters.maximumUserScore}
+                              onfilterchange={handleFilterChange}></c-movie-cloud-filter>
+      </div>
+    </lightning-layout-item>
+    <lightning-layout-item size="12" medium-device-size="10">
+      <lightning-layout multiple-rows vertical-align="stretch">
+        <template for:each={movies} for:item="movie">
+          <lightning-layout-item key={movie.id} size="6" medium-device-size="3" large-device-size="2"
+                                 class="slds-p-around_xx-small">
+            <c-movie-card movie={movie}></c-movie-card>
+          </lightning-layout-item>
+        </template>
+        <lightning-layout-item size="12">
+          <div class="slds-p-around_xx-small">
+            <button disabled={isLoadMoreDisabled} class="slds-button slds-button_brand slds-button_stretch load-more-btn"
+                    onclick={handleLoadMore}
+                    title="Load More">
+              Load More
+            </button>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
   </lightning-layout>
+  <lightning-spinner lwc:if={loading} alternative-text="Loading"></lightning-spinner>
 </template>
