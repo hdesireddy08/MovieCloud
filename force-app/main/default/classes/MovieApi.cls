@@ -52,6 +52,13 @@ public inherited sharing class MovieApi {
         return ListMovie.parse(jsonResponse);
     }
 
+    public static ListGenre getGenres(String language) {
+        String jsonResponse = processRequest(ResourceType.GENRE_MOVIES, new Map<String, Object> {
+            'language' => language
+        });
+        return ListGenre.parse(jsonResponse);
+    }
+
     private static String processRequest(ResourceType resource, Map<String, Object> parameters) {
         HttpRequest request = createRequest(resource, null, parameters);
         return sendRequest(request);
