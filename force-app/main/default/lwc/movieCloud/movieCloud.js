@@ -42,14 +42,15 @@ export default class MovieCloud extends LightningElement {
       "with_runtime.lte": this.filters.maximumRuntime,
     };
     if (this.filters.fromReleaseDate) {
-      parameters["primary_release_date.gte"] = new Date(this.filters.fromReleaseDate).toJSON().split('T')[0];
+      parameters["primary_release_date.gte"] = this.filters.fromReleaseDate;
     }
     if (this.filters.toReleaseDate) {
-      parameters["primary_release_date.lte"] = new Date(this.filters.toReleaseDate).toJSON().split('T')[0];
+      parameters["primary_release_date.lte"] = this.filters.toReleaseDate;
     }
     if (this.filters.genres && this.filters.genres.length > 0) {
       parameters.with_genres = this.filters.genres.join(",");
     }
+    console.log(parameters);
     return parameters;
   }
 
@@ -86,7 +87,7 @@ export default class MovieCloud extends LightningElement {
   }
 
   handleError(error) {
-    this.errorMessage = error.body.message || error.message || JSON.stringify(error);
+    this.errorMessage = error.body?.message || error.message || JSON.stringify(error);
     this.dispatchEvent(new ShowToastEvent({
       title: "Error",
       message: this.errorMessage,

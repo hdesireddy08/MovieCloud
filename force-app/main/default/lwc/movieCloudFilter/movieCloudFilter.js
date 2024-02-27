@@ -89,14 +89,14 @@ export default class MovieCloudFilter extends LightningElement {
         maximumUserScore: this.maximumUserScore,
         minimumRuntime: this.minimumRuntime,
         maximumRuntime: this.maximumRuntime,
-        fromReleaseDate: this.fromReleaseDate,
-        toReleaseDate: this.toReleaseDate
+        fromReleaseDate: this.fromReleaseDate ? new Date(this.fromReleaseDate).toJSON().split('T')[0] : null,
+        toReleaseDate: this.toReleaseDate ? new Date(this.toReleaseDate).toJSON().split('T')[0] : null
       }
     }));
   }
 
   handleError(error) {
-    this.errorMessage = error.body.message || error.message || JSON.stringify(error);
+    this.errorMessage = error?.body?.message || error?.message || JSON.stringify(error);
     this.dispatchEvent(new ShowToastEvent({
       title: "Error",
       message: this.errorMessage,
