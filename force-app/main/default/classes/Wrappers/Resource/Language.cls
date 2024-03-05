@@ -12,11 +12,19 @@
  * UNLESS PRIOR WRITTEN PERMISSION IS OBTAINED FROM FONTEVA, INC.
  * -----------------------------------------------------------------------------
  */
-public inherited sharing class ListCountry extends ListBase {
+public inherited sharing class Language {
     @AuraEnabled
-    public List<Country> results { get; set; }
+    public String iso_639_1 {get;set;}
+    @AuraEnabled
+    public String english_name {get;set;}
+    @AuraEnabled
+    public String name {get;set;}
 
-    public static ListCountry parse(String json) {
-        return (ListCountry) System.JSON.deserialize(json, ListCountry.class);
+    public static Language parse(String json) {
+        return (Language) System.JSON.deserialize(json, Language.class);
+    }
+
+    public static List<Language> parseList(String json) {
+        return (List<Language>) System.JSON.deserialize(json, List<Language>.class);
     }
 }

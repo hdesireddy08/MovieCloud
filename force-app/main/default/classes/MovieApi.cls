@@ -22,6 +22,7 @@ public inherited sharing class MovieApi {
         ResourceType.DISCOVER_MOVIES => '/discover/movie',
         ResourceType.GENRE_MOVIES => '/genre/movie/list',
         ResourceType.COUNTRIES => '/configuration/countries',
+        ResourceType.LANGUAGES => '/configuration/languages',
         ResourceType.MOVIE_DETAILS => '/movie/{0}',
         ResourceType.MOVIE_CREDITS => '/movie/{0}/credits',
         ResourceType.MOVIE_IMAGES => '/movie/{0}/images',
@@ -44,7 +45,8 @@ public inherited sharing class MovieApi {
         PERSON_MOVIE_CREDITS,
         PERSON_IMAGES,
         MOVIE_ADD_RATING,
-        COUNTRIES
+        COUNTRIES,
+        LANGUAGES
     }
 
     public static ListMovie getMovies(Map<String, Object> parameters) {
@@ -57,6 +59,20 @@ public inherited sharing class MovieApi {
             'language' => language
         });
         return ListGenre.parse(jsonResponse);
+    }
+
+    public static List<Language> getLanguages() {
+        String jsonResponse = processRequest(ResourceType.LANGUAGES);
+        return Language.parseList(jsonResponse);
+    }
+
+    public static List<Country> getCountries() {
+        String jsonResponse = processRequest(ResourceType.COUNTRIES);
+        return Country.parseList(jsonResponse);
+    }
+
+    public static String processRequest(ResourceType resource) {
+        return processRequest(resource, null);
     }
 
     private static String processRequest(ResourceType resource, Map<String, Object> parameters) {

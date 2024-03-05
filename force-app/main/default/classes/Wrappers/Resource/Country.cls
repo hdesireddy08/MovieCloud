@@ -23,4 +23,8 @@ public inherited sharing class Country {
     public static Country parse(String json) {
         return (Country) System.JSON.deserialize(json, Country.class);
     }
+
+    public static List<Country> parseList(String json) {
+        return (List<Country>) System.JSON.deserialize(json, List<Country>.class);
+    }
 }
