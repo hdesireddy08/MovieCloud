@@ -42,9 +42,15 @@
       </div>
       <div class="slds-section slds-is-open">
         <h3 class="slds-section__title slds-theme_shade">
-          <span class="slds-truncate slds-p-horizontal_small" title="Language">Language(Harisha's)</span>
+          <span class="slds-truncate slds-p-horizontal_small" title="Language">Language</span>
         </h3>
         <div class="slds-section__content">
+          <lightning-combobox data-name="language"
+                              name="language"
+                              label="Languages"
+                              value={language}
+                              options={languages}
+                              onchange={handleValueChange}></lightning-combobox>
         </div>
       </div>
       <div class="slds-section slds-is-open">

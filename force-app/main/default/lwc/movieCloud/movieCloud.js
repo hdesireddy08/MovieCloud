@@ -18,7 +18,7 @@ export default class MovieCloud extends LightningElement {
   filters = {
     genres: [],
     sortBy: "vote_average.desc",
-    language: "en-US",
+    language: "en",
     minimumUserVotes: 300,
     minimumUserScore: 0,
     maximumUserScore: 10,
